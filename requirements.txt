@@ -4,6 +4,9 @@ tensorflow==1.15.2
 pynput==1.6.8
 opencv_python==4.1.0.25
 environs==4.2.0
-numpy==1.13.3
-PyQt5==5.14.1
 PyYAML==5.3
+numpy==1.16.0
+PyQt5==5.15.0
+rospkg
+pathlib
+PyQt3D
