@@ -1,3 +1,4 @@
+setuptools==47.3.1
 npyscreen==4.10.5
 Keras==2.3.1
 tensorflow==1.15.2
