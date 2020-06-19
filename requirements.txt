@@ -6,7 +6,7 @@ opencv_python==4.2.0.34
 environs
 PyYAML
 numpy
-PyQt5==5.15.0
+PyQt5
 rospkg
 pathlib
 PyQt3D
