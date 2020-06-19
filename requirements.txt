@@ -1,3 +1,5 @@
+PyQt5
+PyQt3D
 npyscreen==4.10.5
 Keras==2.4.1
 tf-nightly
@@ -6,7 +8,5 @@ opencv_python==4.2.0.34
 environs
 PyYAML
 numpy
-PyQt5
 rospkg
 pathlib
-PyQt3D
