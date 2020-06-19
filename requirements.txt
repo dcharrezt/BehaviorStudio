@@ -9,3 +9,4 @@ PyYAML
 numpy
 rospkg
 pathlib
+jderobot-jderobottypes
