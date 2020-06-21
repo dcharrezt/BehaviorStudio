@@ -9,13 +9,18 @@ RUN apt-get update && apt-get install -y \
 	python3-pip \
  	python3-setuptools \
 	python3-opengl \ 
+        python3-pyqt5 \
+	python3-pyqt5.qtsvg \
+	python3-pyqt5.qsci \
+	pyqt5-dev-tools \
 	tmux \
 	x11vnc \
 	xvfb && \
-    pip3 install --upgrade pip
+    pip3 install --upgrade pip && \
+    pip3 install jupyterlab
 
 # Installing behavior studio
-RUN git clone -b python_3.6.9 https://github.com/dcharrezt/BehaviorStudio && \
+RUN git clone -b python_3.8.2 https://github.com/dcharrezt/BehaviorStudio && \
     cd BehaviorStudio && \
     pip3 install -r requirements.txt && \
     pyrcc5 -o behavior_studio/ui/gui/resources/resources.py \
@@ -23,12 +28,9 @@ RUN git clone -b python_3.6.9 https://github.com/dcharrezt/BehaviorStudio && \
 
 WORKDIR /root/
 
-COPY startup.sh compile_opencv.sh /root/
+RUN echo 'alias jl="DISPLAY=:0 jupyter lab --no-browser --ip 0.0.0.0 --port 8888 --allow-root &"' >> /root/.bashrc && \
+    echo "alias killgazebogym='killall -9 rosout roslaunch rosmaster gzserver nodelet robot_state_publisher gzclient'" >> ~/.bashrc
 
-## Not working atm
-#RUN /bin/bash -c "source ~/.bashrc" && \
-#    chmod +x startup.sh && \
-#    chmod +x compile_opencv.sh && \
-#    ./compile_opencv.sh
+COPY startup.sh /root/
 
 CMD ["bash"]
